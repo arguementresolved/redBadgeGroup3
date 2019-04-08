@@ -1,0 +1,13 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+
+}
+
+.navbar-btn {
+    margin-right: 0.5em;
+    background-color: #132584;
+}
+.nav-item {
+    position: relative;
+    float: right;
+}
