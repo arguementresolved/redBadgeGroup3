@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
 const apiUrl = 'http://127.0.0.1:5000/';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
-  createNote(note: Note) {
-    return this._http.post(`${apiUrl}/api/Notes`, note, { headers: this.getHeaders()});
+  createComment(comment: Comment) {
+    return this._http.post(`${apiUrl}/comment/new`, comment, { headers: this.getHeaders()});
   }
 
 }

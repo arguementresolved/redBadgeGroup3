@@ -1,6 +1,7 @@
 
 import requests
 import json
+from . import db, bcrypt
 
 
 # Example:
