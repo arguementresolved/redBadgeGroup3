@@ -1,9 +1,7 @@
 import datetime
 from marshmallow import fields, Schema  # we will use these later
 
-from . import db
-from ..app import bcrypt
-# from .blog_post import BlogPostSchema
+from . import db, bcrypt
 
 
 class UserModel(db.Model):
@@ -16,7 +14,6 @@ class UserModel(db.Model):
     created_at = db.Column(db.DateTime)
     modified_at = db.Column(db.DateTime)
     # navigational property
-    blogposts = db.relationship('BlogPostModel', backref='users', lazy=True)
 
     def __init__(self, data):
         self.username = data.get('username')
@@ -72,5 +69,4 @@ class UserSchema(Schema):
     password = fields.Str(required=True)
     created_at = fields.DateTime(dump_only=True)
     modified_at = fields.DateTime(dump_only=True)
-    blogposts = fields.Nested(BlogPostSchema, many=True)
 
