@@ -16,7 +16,7 @@ class UserModel(db.Model):
     created_at = db.Column(db.DateTime)
     modified_at = db.Column(db.DateTime)
     # navigational property
-    blogposts = db.relationship('BlogPostModel', backref='users', lazy=True)
+    blogposts = db.relationship('BattlesModel', backref='users', lazy=True)
 
     def __init__(self, data):
         self.username = data.get('username')
