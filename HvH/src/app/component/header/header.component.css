@@ -6,8 +6,12 @@
 .navbar-btn {
     margin-right: 0.5em;
     background-color: #132584;
+    float: left;
+    ;
 }
 .nav-item {
     position: relative;
-    float: right;
+    float: left;
+    left: 300px;
+    display: flex;
 }
