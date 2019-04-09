@@ -11,4 +11,8 @@ export class AuthService {
   createComment(comment: Comment) {
     return this._http.post(`${apiUrl}/comment/new`, comment, { headers: this.getHeaders()});
   }
+
 }
+export class NotesService {
+
+  constructor(private _http: HttpClient) { };
