@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-login',
@@ -14,7 +12,9 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
 
-  constructor(private _form: FormBuilder, private authService: AuthService, private _router: Router) { }
+  constructor(private _form: FormBuilder, private _authService: AuthService, private _router: Router) {
+    this.createForm();
+   }
 
   ngOnInit() {
   }
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this._router.navigate(['/battles']);
+    console.log('logged in lol jk');
   }
 
 }
