@@ -9,7 +9,7 @@ from . import db, bcrypt
 
 # API source rights: Copyright 2017 © TwentyEight10
 
-class BattlesModel(db.model):
+class BattlesModel(db.Model):
     __tablename__ = 'battles'
 
     id = db.Column(db.Integer, primary_key=True)
