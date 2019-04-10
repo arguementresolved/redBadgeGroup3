@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import {
@@ -10,6 +13,7 @@ import {
   MatInputModule,
   MatTableModule
 } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,12 +24,10 @@ import { HeaderComponent } from './component/header/header.component';
 import { LoginComponent } from './component/userCrud/login/login.component';
 import { RegisterComponent } from './component/userCrud/register/register.component';
 import { AuthService } from './services/auth.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'register', component: HomePageComponent },
   { path: 'battle', component: BattlePageComponent },
   { path: 'nerdFight', component: NerdFightComponent },
   { path: 'register', component: RegisterComponent },
@@ -46,8 +48,12 @@ const routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -59,6 +65,7 @@ const routes = [
   providers: [
     AuthService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

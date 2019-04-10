@@ -1,25 +1,26 @@
 # from flask import request, json, Response, Blueprint, g
-# from ..models.battles import BattlesModel
+# from ..shared.authentication import Auth
+# from ..models.battles import BattlesModel, BattlesSchema
 
-# user_api = Blueprint('users', __name__)
-# user_schema = UserSchema()
+# battles_api = Blueprint('battles', __name__)
+# battles_schema = BattlesSchema()
 
 
 # @battles_api.route('/', methods=['POST'])
 # def create():
 #     '''
-#     Create endpoint for user api
+#     Create endpoint for battles api
 #     '''
 
 #     req_data = request.get_json()
-#     data, error = user_schema.load(req_data)
+#     data, error = battles_schema.load(req_data)
 
 #     if error:
 #         return custom_response(error, 400)
 
 #     # check if user already exists in db
-#     user_in_db = UserModel.get_user_by_email(data.get('email'))
-#     if user_in_db:
+#     battles_in_db = BattlesModel.get_user_by_email(data.get('email'))
+#     if battles_in_db:
 #         message = {'error': 'User already exists, please supply another email address'}
 #         return custom_response(message, 400)
 
@@ -33,37 +34,14 @@
 #     return custom_response({'token': token}, 201)
 
 
-# @user_api.route('/me', methods=['DELETE'])
-# @Auth.auth_required
-# def delete():
-#     '''
-#     Delete the user model
-#     if authenticated
-#     '''
-#     user = UserModel.get_one_user(g.user.get('id'))
-#     user.delete()
-#     return custom_response({'message': 'deleted'}, 204)
-
-
-# @user_api.route('/', methods=['GET'])
-# @Auth.auth_required
-# def get_all():
-#     '''
-#     Get all users
-#     '''
-#     users = UserModel.get_all_users()
-#     ser_users = user_schema.dump(users, many=True).data
-#     return custom_response(ser_users, 200)
-
-
-# @user_api.route('/<int:user_id>', methods=['GET'])
+# @battles_api.route('/<int:fighter_id>', methods=['GET'])
 # @Auth.auth_required
 # def get_user(user_id):
 #     '''
-#     Get a single user
+#     Get info from ID, off of the API
 #     '''
-#     user = UserModel.get_one_user(user_id)
-#     if not user:
+#     fighter = BattlesModel.get_one_user(fighter_id)
+#     if not figher:
 #         return custom_response({'error': 'user not found'}, 404)
 
 #     ser_user = user_schema.dump(user).data
