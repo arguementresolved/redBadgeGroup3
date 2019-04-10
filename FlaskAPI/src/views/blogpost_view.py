@@ -1,9 +1,10 @@
 
+
 import json
 
 from flask import request, g, Blueprint, json, Response
 from ..shared.authentication import Auth
-from ..models.blogpost import BlogPostModel, BlogPostSchema
+from ..models.comments import BlogPostModel, BlogPostSchema
 
 
 blogpost_api = Blueprint('blogpost_api', __name__)
@@ -31,14 +32,21 @@ def create():
 @blogpost_api.route('/<int:id>')
 @Auth.auth_required
 def delete(id):
+    '''
+    Deletes a blog post
+    only owner of post
+    can  delete the post
+    '''
+
     post = BlogPostModel.get_one_blogpost(id)
 
     if not post:
-        return custom_response({'error': 'post not found'}, 404)
+        return custom_response({'error': 'post not found'},
+                               404)
 
     data = blogpost_schema.dump(post).data
     if data.get('owner_id') != g.user.get('id'):
-        return custom_response({'error': 'permission denied'})
+        return custom_response({'error': 'permission denied'}, 400)
 
     post.delete()
     return custom_response({'message': 'deleted'}, 204)
@@ -47,6 +55,10 @@ def delete(id):
 @blogpost_api.route('/', methods=['GET'])
 @Auth.auth_required
 def get_all():
+    '''
+    returns all blog BlogPostSchema
+    '''
+
     posts = BlogPostModel.get_all_blogposts()
     data = blogpost_schema.dump(posts, many=True).data
     return custom_response(data, 200)
@@ -55,6 +67,7 @@ def get_all():
 @blogpost_api.route('/<int:blogpost_id>')
 @Auth.auth_required
 def get_one(blogpost_id):
+
     post = BlogPostModel.get_one_blogpost(blogpost_id)
 
     if not post:
@@ -68,6 +81,12 @@ def get_one(blogpost_id):
 @blogpost_api.route('/<int:blogpost_id>', methods=['PUT'])
 @Auth.auth_required
 def update(blogpost_id):
+    '''
+    Update a blog posts
+    only owners of post can
+    edit the post
+    '''
+
     req_data = request.get_json()
     post = BlogPostModel.get_one_blogpost(blogpost_id)
 
