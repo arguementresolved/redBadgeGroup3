@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./battle-page.component.css']
 })
 export class BattlePageComponent implements OnInit {
-  
+
   constructor() { }
 
   ngOnInit() {

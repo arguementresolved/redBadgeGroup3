@@ -26,8 +26,10 @@ const routes = [
   { path: 'register', component: HomePageComponent },
   { path: 'battle', component: BattlePageComponent },
   { path: 'nerdFight', component: NerdFightComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: HomePageComponent }
-]
+];
 
 
 @NgModule({
