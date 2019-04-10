@@ -22,6 +22,7 @@ import { RegisterComponent } from './component/userCrud/register/register.compon
 
 const routes = [
   { path: 'home', component: HomePageComponent },
+  { path: 'register', component: HomePageComponent },
   { path: 'battle', component: BattlePageComponent },
   { path: 'nerdFight', component: NerdFightComponent },
   { path: '**', component: HomePageComponent }
