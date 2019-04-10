@@ -1,12 +1,15 @@
-
 from . import db
 from datetime import datetime
 
-from marshmallow import Schema, fields
+from marshmallow import fields, Schema
 
 
-class CommentsModel(db.Model):
-    __tablename__ = 'comments'
+class BlogPostModel(db.Model):
+    '''
+    BlogPost Model
+    '''
+
+    __tablename__ = 'blogposts'
 
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -16,6 +19,12 @@ class CommentsModel(db.Model):
     modified_at = db.Column(db.DateTime)
 
     def __init__(self, data):
+        '''
+        Takes in a json request body
+        as data and parses to
+        instance attributes
+        '''
+
         self.owner_id = data.get('owner_id')
         self.title = data.get('title')
         self.content = data.get('content')
@@ -26,32 +35,44 @@ class CommentsModel(db.Model):
         return f'<id {self.id}>'
 
     def delete(self):
+        '''
+        deletes current model from database
+        '''
         db.session.delete(self)
         db.session.commit()
 
     def save(self):
+        '''
+        saves new object to database
+        '''
         db.session.add(self)
         db.session.commit()
 
     def update(self, data):
+        '''
+        updates model after setting attributes
+        and persists them to database
+        '''
         for key, item in data.items():
             setattr(self, key, item)
         self.modified_at = datetime.utcnow()
         db.session.commit()
 
     @staticmethod
-    def get_all_comments():
-        return CommentsModel.query.all()
+    def get_all_blogposts():
+        return BlogPostModel.query.all()
 
     @staticmethod
-    def get_one_comment(id):
-        return CommentsModel.query.get(id)
+    def get_one_blogpost(id):
+        return BlogPostModel.query.get(id)
 
 
-class CommentsSchema(Schema):
+# models/blog_post.py
+class BlogPostSchema(Schema):
     id = fields.Int(dump_only=True)
     title = fields.Str(required=True)
     content = fields.Str(required=True)
     owner_id = fields.Int(required=True)
     created_at = fields.DateTime(dump_only=True)
     modified_at = fields.DateTime(dump_only=True)
+©
