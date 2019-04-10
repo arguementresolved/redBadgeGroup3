@@ -27,6 +27,15 @@
     <br>
     <br>
     <br>
+    <form (ngSubmit)="onSubmit()" [formGroup]="_fighterIn">
+      <textarea style="text-align: center" placeholder="Fighter ID #1" name="p1" id="{{k}}" cols="25" rows="1">{{k}}</textarea>
+      <textarea style="text-align: center" placeholder="Fighter ID #1" name="p1" id="{{k}}" cols="25" rows="1">{{k}}</textarea>
+      <button ngsubmit>FIGHT!</button>
+    </form>
+
+
+
+
     <br>
     <br>
     <br>
@@ -34,13 +43,13 @@
     <div class="row align-items-end">
       <div style="text-align: center" class="col">
         <h4 style="text-align: center">Fighter #1</h4>
-        <textarea style="text-align: center" placeholder="Fighter #1" name="p1" id="" cols="25" rows="1"></textarea>
+        
       </div>
       <div class="col" style="text-align: center">
         <a><button>FIGHT!</button></a>
       </div>
       <div style="text-align: center" class="col">
         <h4 style="text-align: center">Fighter #2</h4>
-        <textarea style="text-align: center" placeholder="Fighter #2" name="p2" id="" cols="25" rows="1"></textarea>
+        <textarea style="text-align: center" placeholder="Fighter #2" name="p2" id="" cols="25" rows="1">{{l}}</textarea>
       </div>
     </div>

@@ -47,7 +47,7 @@ def delete():
     return custom_response({'message': 'deleted'}, 204)
 
 
-@user_api.route('/', methods=['GET'])
+@user_api.route('/all', methods=['GET'])
 @Auth.auth_required
 def get_all():
     '''
