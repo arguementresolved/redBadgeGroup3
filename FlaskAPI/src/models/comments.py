@@ -1,7 +1,8 @@
-from . import db
+from . import db, bcrypt
 from datetime import datetime
 
 from marshmallow import fields, Schema
+
 
 
 class BlogPostModel(db.Model):
@@ -75,4 +76,3 @@ class BlogPostSchema(Schema):
     owner_id = fields.Int(required=True)
     created_at = fields.DateTime(dump_only=True)
     modified_at = fields.DateTime(dump_only=True)
-©
