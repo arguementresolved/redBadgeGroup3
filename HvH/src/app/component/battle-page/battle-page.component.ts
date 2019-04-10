@@ -6,14 +6,13 @@ import { BattlesID } from '../../models/battles';
   selector: 'app-battle-page',
   templateUrl: './battle-page.component.html',
   styleUrls: ['./battle-page.component.css'],
-
-  template: `<span>{{k}}</span>`
-})
+},
+)
 export class BattlePageComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  
 }
