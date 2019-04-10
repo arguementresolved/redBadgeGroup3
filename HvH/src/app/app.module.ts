@@ -16,6 +16,8 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { BattlePageComponent } from './component/battle-page/battle-page.component';
 import { NerdFightComponent } from './component/nerd-fight/nerd-fight.component';
 import { HeaderComponent } from './component/header/header.component';
+import { LoginComponent } from './component/userCrud/login/login.component';
+import { RegisterComponent } from './component/userCrud/register/register.component';
 
 
 const routes = [
@@ -32,7 +34,9 @@ const routes = [
     HomePageComponent,
     BattlePageComponent,
     NerdFightComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
