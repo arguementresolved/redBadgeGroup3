@@ -69,4 +69,3 @@ class UserSchema(Schema):
     password = fields.Str(required=True)
     created_at = fields.DateTime(dump_only=True)
     modified_at = fields.DateTime(dump_only=True)
-
