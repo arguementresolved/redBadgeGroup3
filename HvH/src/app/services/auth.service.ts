@@ -15,4 +15,5 @@ export class AuthService {
 }
 export class NotesService {
 
-  constructor(private _http: HttpClient) { };
+  constructor(private _http: HttpClient) { }; 
+} 
