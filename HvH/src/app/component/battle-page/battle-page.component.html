@@ -27,15 +27,26 @@
     <br>
     <br>
     <br>
-    <form (ngSubmit)="onSubmit()" [formGroup]="_fighterIn">
-      <textarea style="text-align: center" placeholder="Fighter ID #1" name="p1" id="{{k}}" cols="25" rows="1">{{k}}</textarea>
-      <textarea style="text-align: center" placeholder="Fighter ID #1" name="p1" id="{{k}}" cols="25" rows="1">{{k}}</textarea>
-      <button ngsubmit>FIGHT!</button>
+    <app-battle-page></app-battle-page>
+    <form (ngSubmit)="onSubmit()" [formGroup]="_fighters">
+      <div>
+        <div>
+          <textarea style="text-align: center" placeholder="Fighter ID #1 - #731" name="p2" id="fighter1" cols="25" rows="1"></textarea>
+        </div>
+      </div>
+      <div>
+        <div>
+          <textarea style="text-align: center" placeholder="Fighter ID #1 - #731" name="p2" id="fighter2" cols="25" rows="1"></textarea>
+        </div>
+      </div>
+      <button type="submit">Simulate Fight!</button>
     </form>
+<!-- 
+    <textarea style="text-align: center" placeholder="Fighter ID #1" name="p1" id="{{k}}" cols="25" rows="1">{{k}}</textarea>
+    <textarea style="text-align: center" placeholder="Fighter ID #2" name="p1" id="{{l}}" cols="25" rows="1">{{k}}</textarea>
+    <button ngsubmit>FIGHT!</button> -->
 
-
-
-
+<!-- 
     <br>
     <br>
     <br>
@@ -52,4 +63,4 @@
         <h4 style="text-align: center">Fighter #2</h4>
         <textarea style="text-align: center" placeholder="Fighter #2" name="p2" id="" cols="25" rows="1">{{l}}</textarea>
       </div>
-    </div>
+    </div> -->
