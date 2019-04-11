@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { template } from '@angular/core/src/render3';
+
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
@@ -17,6 +18,7 @@ export class BattlePageComponent implements OnInit {
 
   ngOnInit() {
   }
+
   createForm() {
     this._registerForm = group({
       fighter1: new FormControl,
