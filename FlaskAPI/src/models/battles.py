@@ -1,6 +1,8 @@
 
 import requests
 import json
+from . import db, bcrypt
+from marshmallow import Schema, fields
 
 
 # Example:
@@ -8,7 +10,7 @@ import json
 
 # API source rights: Copyright 2017 © TwentyEight10
 
-class BattlesModel(db.model):
+class BattlesModel(db.Model):
     __tablename__ = 'battles'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -206,3 +208,10 @@ class BattlesModel(db.model):
                 print(f'{z2} would win!')
             elif g1 == g2:
                 print(f'{z1} vs. {z2} would result in a stalmate!')
+
+class BattlesSchema(Schema):
+    id = fields.Int(dump_only=True)
+    Hero_names = fields.Str(required=True)
+    Results = fields.Email(required=True)
+    created_at = fields.DateTime(dump_only=True)
+    battles = fields.DateTime(dump_only=True)

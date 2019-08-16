@@ -2,23 +2,6 @@
 import requests
 import json
 
-# THIS PYTHON FILE DONE BY Joshua D. Serie
-
-# TODO: requests and json needed pip'd
-
-# TODO: TIME COMPLEXITY - |||lookup\\\ 
-# TODO: ASYNCHRONOUS - |||lookup\\\ 
-
-# BASE "Who would win?" CODE
-
-# https://superheroapi.com/api/2137552436292179
-# Token: 2137552436292179
-
-# https://superheroapi.com/index.html
-
-# Example:
-# https://superheroapi.com/try-now.html
-
 # API source rights: Copyright 2017 © TwentyEight10
 
 # ID LOOKUP SITE:

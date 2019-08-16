@@ -1,9 +1,17 @@
 <mat-toolbar color="primary">
-  <span> Hero vs Hero</span>
-  <span class="example-fill-remaine-space"></span>
     <ul class="nav justify-content-end">
-        <button mat-raised-button class="nav-item">List</button>
-        <button mat-raised-button class="nav-item">Rage</button>
-        <button mat-raised-button class="nav-item">User</button>
+      <li class="nav-item">
+        <span routerLink="/home"> Hero vs Hero</span>
+      </li>
+      <li class="nav-item mr-3">
+        <button mat-raised-button class="nav-item" routerLink="#">List</button>
+      </li>
+      <li class="nav-item mr-3">
+        <button mat-raised-button class="nav-item" routerLink="/nerdFight">Rage</button>
+      </li>
+      <li class="nav-item mr-3">
+        <button mat-raised-button class="nav-item" routerLink="/login">Login</button>
+      </li>
     </ul>
 </mat-toolbar>
+
